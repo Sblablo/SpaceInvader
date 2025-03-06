@@ -69,7 +69,7 @@ public class Wave : MonoBehaviour
     {
         // Called on enemy death
         count -= 1;
-        if (count == 14 || count == 10 || count == 5)
+        if (count == 10 || count == 5)
         {
             Instantiate(ovni);
         }
