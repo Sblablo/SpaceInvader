@@ -12,9 +12,11 @@ public class Player : MonoBehaviour
 
   public AudioClip pistolsound;
   public float speed;
+  public ParticleSystem ParticleSystem;
   
   void Start()
   {
+    ParticleSystem.Play();
     Enemy.OnEnemyDied += EnemyOnOnEnemyDied;
     Ovni.OnOvniDie += EnemyOnOnEnemyDied;
     playerAnimator = GetComponent<Animator>();
