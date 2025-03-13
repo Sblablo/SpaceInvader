@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
   public GameObject bullet;
   public Transform shottingOffset;
   private Animator playerAnimator;
+  private AudioSource AudioSource;
 
+  public AudioClip pistolsound;
   public float speed;
   
   void Start()
@@ -16,6 +18,7 @@ public class Player : MonoBehaviour
     Enemy.OnEnemyDied += EnemyOnOnEnemyDied;
     Ovni.OnOvniDie += EnemyOnOnEnemyDied;
     playerAnimator = GetComponent<Animator>();
+    AudioSource = GetComponent<AudioSource>();
   }
 
   private void OnDestroy()
@@ -35,6 +38,8 @@ public class Player : MonoBehaviour
     if (Input.GetKeyDown(KeyCode.Space))
     {
       playerAnimator.SetTrigger("Shooting Trigger");
+      AudioSource.clip = pistolsound;
+      AudioSource.Play();
       GameObject shot = Instantiate(bullet, shottingOffset.position, Quaternion.identity);
       //Debug.Log("Bang!");
 
