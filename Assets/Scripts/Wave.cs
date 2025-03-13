@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Wave : MonoBehaviour
 {
@@ -73,7 +74,16 @@ public class Wave : MonoBehaviour
         {
             Instantiate(ovni);
         }
+        else if (count == 0)
+        {
+            LoadCredits();
+        }
         moveSpeed += 25f;
         Debug.Log($"speed is {moveSpeed}");
+    }
+    
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }
